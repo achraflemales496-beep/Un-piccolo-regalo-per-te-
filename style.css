@@ -1,8 +1,4 @@
-
-/* =========================================================
-   RESET
-========================================================= */
-
+```css
 * {
     margin: 0;
     padding: 0;
@@ -16,58 +12,72 @@ body {
 }
 
 body {
-    overflow-x: hidden;
+    min-height: 100svh;
+    overflow: hidden;
+
     font-family: Georgia, "Times New Roman", serif;
+
     background: #08050b;
-    color: #fff;
+    color: white;
+}
+
+button,
+a {
+    font-family: inherit;
 }
 
 
-/* =========================================================
+/* ================================
    PAGINA
-========================================================= */
+================================ */
 
-.gift-page {
+.page {
     position: relative;
-    min-height: 100svh;
+
     width: 100%;
+    min-height: 100svh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     overflow: hidden;
+
     background:
         radial-gradient(
-            circle at 50% 45%,
-            rgba(120, 30, 70, 0.22),
-            transparent 45%
+            circle at center,
+            rgba(130, 30, 70, 0.25),
+            transparent 55%
         ),
         #08050b;
 }
 
 
-/* =========================================================
+/* ================================
    STELLE
-========================================================= */
-
-.stars,
-.stars::before,
-.stars::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
+================================ */
 
 .stars {
-    opacity: 0.5;
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.45;
+
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,190,220,.5) 1px, transparent 1px);
-    background-size: 90px 90px, 140px 140px;
-    background-position: 10px 20px, 50px 80px;
-    animation: starsMove 18s linear infinite;
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.8) 1px,
+            transparent 1px
+        );
+
+    background-size: 90px 90px;
+
+    animation: stars 18s linear infinite;
 }
 
-@keyframes starsMove {
+@keyframes stars {
     from {
         transform: translateY(0);
     }
@@ -78,21 +88,26 @@ body {
 }
 
 
-/* =========================================================
+/* ================================
    INTRO
-========================================================= */
+================================ */
 
 .intro {
     position: relative;
     z-index: 2;
+
     width: 100%;
     min-height: 100svh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    padding: 30px 20px;
+
+    padding: 25px 20px;
+
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
@@ -100,32 +115,52 @@ body {
 
 .intro.hide {
     opacity: 0;
-    transform: scale(0.94);
+    transform: scale(0.95);
+
     pointer-events: none;
 }
 
-.small-text {
+
+/* ================================
+   TESTI
+================================ */
+
+.top-text {
     margin-bottom: 12px;
-    font-size: 15px;
+
+    font-size: 14px;
+
     letter-spacing: 1px;
-    color: rgba(255,255,255,.65);
+
+    color: rgba(255,255,255,0.65);
 }
 
 h1 {
-    font-size: clamp(32px, 9vw, 58px);
+    font-size: clamp(38px, 10vw, 60px);
+
     line-height: 1.05;
+
     font-weight: normal;
-    margin-bottom: 45px;
+
+    margin-bottom: 18px;
 }
 
 h1 span {
     font-style: italic;
 }
 
+.subtitle {
+    margin-bottom: 35px;
 
-/* =========================================================
+    font-size: 15px;
+
+    color: rgba(255,255,255,0.65);
+}
+
+
+/* ================================
    BUSTA
-========================================================= */
+================================ */
 
 .envelope-area {
     display: flex;
@@ -133,222 +168,25 @@ h1 span {
     align-items: center;
 }
 
-.envelope-button {
-    border: 0;
-    background: transparent;
-    padding: 20px;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
 .envelope {
     position: relative;
-    width: min(72vw, 310px);
+
+    width: min(70vw, 300px);
+
     aspect-ratio: 1.45 / 1;
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,.45));
+
+    margin-bottom: 30px;
+
+    filter:
+        drop-shadow(
+            0 20px 30px rgba(0,0,0,0.5)
+        );
+
     animation: floating 3s ease-in-out infinite;
 }
 
 @keyframes floating {
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
 
-    50% {
-        transform: translateY(-10px) rotate(1deg);
-    }
-}
-
-
-/* Retro della busta */
-
-.envelope-back {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        145deg,
-        #8e234b,
-        #5d1635
-    );
-    border-radius: 8px;
-}
-
-
-/* Lettera */
-
-.letter {
-    position: absolute;
-    left: 9%;
-    right: 9%;
-    bottom: 8%;
-    height: 80%;
-    background: #fff8fa;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #9c2753;
-    font-size: 30px;
-    transform: translateY(4%);
-    transition: transform 1s cubic-bezier(.2,.8,.2,1);
-    z-index: 2;
-}
-
-.letter span {
-    animation: heartPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes heartPulse {
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.18);
-    }
-}
-
-
-/* Parte davanti */
-
-.envelope-front {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    overflow: hidden;
-    border-radius: 8px;
-    background: linear-gradient(
-        145deg,
-        #a82d59,
-        #701b40
-    );
-    clip-path: polygon(
-        0 35%,
-        50% 72%,
-        100% 35%,
-        100% 100%,
-        0 100%
-    );
-}
-
-
-/* Patta */
-
-.envelope-flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    z-index: 4;
-    background: linear-gradient(
-        145deg,
-        #b33563,
-        #781d43
-    );
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 100%
-    );
-    transform-origin: top center;
-    transition:
-        transform 1s cubic-bezier(.2,.8,.2,1);
-}
-
-
-/* Stato aperto */
-
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-}
-
-.envelope.open .letter {
-    transform: translateY(-35%);
-}
-
-
-/* =========================================================
-   TESTO SOTTO BUSTA
-========================================================= */
-
-.tap-text {
-    margin-top: 10px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,.55);
-    animation: textPulse 2s ease-in-out infinite;
-}
-
-@keyframes textPulse {
-    0%,
-    100% {
-        opacity: .45;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-
-/* =========================================================
-   MESSAGGIO FINALE
-========================================================= */
-
-.message {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 30px 24px;
-    text-align: center;
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(25px) scale(.97);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease,
-        visibility 1s ease;
-
-    background:
-        radial-gradient(
-            circle at 50% 42%,
-            rgba(130, 30, 75, .28),
-            transparent 48%
-        ),
-        #08050b;
-}
-
-.message.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-
-/* =========================================================
-   CUORE
-========================================================= */
-
-.heart-animation {
-    font-size: 44px;
-    margin-bottom: 20px;
-    animation:
-        heartFloat 2.5s ease-in-out infinite,
-        heartPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes heartFloat {
     0%,
     100% {
         transform: translateY(0);
@@ -360,20 +198,277 @@ h1 span {
 }
 
 
-/* =========================================================
-   TESTI
-========================================================= */
+/* RETRO */
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #92264d,
+            #5e1736
+        );
+}
+
+
+/* LETTERA */
+
+.letter {
+    position: absolute;
+
+    left: 9%;
+    right: 9%;
+    bottom: 8%;
+
+    height: 80%;
+
+    background: #fff8fa;
+
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    color: #9b2852;
+
+    z-index: 2;
+
+    transform: translateY(5%);
+
+    transition:
+        transform 1s ease;
+}
+
+
+/* PARTE ANTERIORE */
+
+.envelope-front {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a92e5b,
+            #701b40
+        );
+
+    clip-path:
+        polygon(
+            0 35%,
+            50% 72%,
+            100% 35%,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+/* PATTA */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70%;
+
+    z-index: 4;
+
+    background:
+        linear-gradient(
+            145deg,
+            #b43564,
+            #781d43
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin: top center;
+
+    transition:
+        transform 1s ease;
+}
+
+
+/* BUSTA APERTA */
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-35%);
+}
+
+
+/* ================================
+   PULSANTE APRI
+================================ */
+
+.open-envelope {
+    border: none;
+
+    min-width: 210px;
+    min-height: 54px;
+
+    padding: 0 25px;
+
+    border-radius: 999px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a72e5b,
+            #711b40
+        );
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(120,25,65,0.35);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    -webkit-tap-highlight-color: transparent;
+
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 10px 30px rgba(120,25,65,0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 40px rgba(170,45,90,0.55);
+    }
+}
+
+.open-envelope:active {
+    transform: scale(0.94);
+}
+
+
+/* ================================
+   MESSAGGIO
+================================ */
+
+.message {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(130,30,70,0.3),
+            transparent 55%
+        ),
+        #08050b;
+}
+
+.message.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* CUORE */
+
+.big-heart {
+    font-size: 48px;
+
+    margin-bottom: 20px;
+
+    animation:
+        heart 1.5s ease-in-out infinite;
+}
+
+@keyframes heart {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* TESTI */
 
 .message-small {
-    color: rgba(255,255,255,.65);
     font-size: 15px;
-    margin-bottom: 15px;
+
+    color: rgba(255,255,255,0.65);
+
+    margin-bottom: 14px;
 }
 
 h2 {
-    font-size: clamp(34px, 10vw, 58px);
-    font-weight: normal;
+    font-size: clamp(38px, 10vw, 60px);
+
     line-height: 1.05;
+
+    font-weight: normal;
+
     margin-bottom: 25px;
 }
 
@@ -382,107 +477,116 @@ h2 span {
 }
 
 .message-text {
-    max-width: 380px;
-    color: rgba(255,255,255,.72);
-    line-height: 1.7;
+    max-width: 340px;
+
     font-size: 16px;
-    margin-bottom: 35px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.72);
+
+    margin-bottom: 30px;
 }
 
 
-/* =========================================================
-   PULSANTE
-========================================================= */
+/* ================================
+   PULSANTE SITO
+================================ */
 
-.open-button {
-    display: inline-flex;
+.site-button {
+    display: flex;
+
     align-items: center;
     justify-content: center;
-    gap: 10px;
 
-    min-height: 55px;
-    padding: 0 26px;
+    width: min(100%, 330px);
+
+    min-height: 56px;
+
+    padding: 0 20px;
 
     border-radius: 999px;
 
     text-decoration: none;
 
     color: white;
-    background: linear-gradient(
-        135deg,
-        #a52d59,
-        #711b40
-    );
 
-    box-shadow:
-        0 12px 35px rgba(120, 25, 65, .35);
+    background:
+        linear-gradient(
+            135deg,
+            #a72e5b,
+            #711b40
+        );
 
     font-size: 15px;
-    letter-spacing: .2px;
+
+    box-shadow:
+        0 12px 35px rgba(120,25,65,0.4);
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        transform 0.2s ease;
 }
 
-.open-button:active {
-    transform: scale(.96);
+.site-button:active {
+    transform: scale(0.95);
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ================================
+   TELEFONO
+================================ */
 
 @media (max-width: 480px) {
 
     .intro {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding: 20px;
     }
 
     h1 {
-        margin-bottom: 35px;
+        font-size: 40px;
     }
 
-    .envelope-button {
-        padding: 15px;
+    .subtitle {
+        margin-bottom: 28px;
     }
 
     .envelope {
-        width: min(78vw, 300px);
+        width: 75vw;
+
+        max-width: 290px;
+
+        margin-bottom: 25px;
     }
 
     .message {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 42px;
     }
 
     .message-text {
         font-size: 15px;
-        line-height: 1.65;
-        max-width: 330px;
+
+        max-width: 310px;
     }
 
-    .open-button {
-        width: 100%;
-        max-width: 330px;
-    }
 }
 
 
-/* =========================================================
+/* ================================
    RIDUZIONE ANIMAZIONI
-========================================================= */
+================================ */
 
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+        animation: none !important;
+
+        transition: none !important;
     }
 }
-
+```
