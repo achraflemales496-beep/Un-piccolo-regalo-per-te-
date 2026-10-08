@@ -1,38 +1,31 @@
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const envelopeButton = document.getElementById("envelopeButton");
-    const envelope = document.querySelector(".envelope");
+    const button = document.getElementById("openEnvelope");
+    const envelope = document.getElementById("envelope");
     const intro = document.getElementById("intro");
     const message = document.getElementById("message");
-    const tapText = document.getElementById("tapText");
 
-    if (!envelopeButton || !envelope || !intro || !message) {
-        console.error("Elementi della pagina non trovati.");
-        return;
-    }
+    button.addEventListener("click", () => {
 
-    envelopeButton.addEventListener("click", function () {
-
-        if (envelope.classList.contains("open")) {
-            return;
-        }
-
+        // Apre la busta
         envelope.classList.add("open");
 
-        if (tapText) {
-            tapText.textContent = "❤️";
-        }
+        // Cambia il testo del pulsante
+        button.textContent = "❤️";
 
-        setTimeout(function () {
+        // Disabilita il pulsante
+        button.disabled = true;
 
+        // Nasconde la prima schermata
+        setTimeout(() => {
             intro.classList.add("hide");
+        }, 1200);
 
-            setTimeout(function () {
-                message.classList.add("show");
-            }, 500);
-
-        }, 1100);
+        // Mostra il messaggio
+        setTimeout(() => {
+            message.classList.add("show");
+        }, 1800);
 
     });
 
