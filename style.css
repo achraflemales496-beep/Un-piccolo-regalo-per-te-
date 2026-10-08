@@ -1,4 +1,4 @@
-```css
+
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +14,7 @@ body {
 body {
     min-height: 100svh;
     overflow: hidden;
-
     font-family: Georgia, "Times New Roman", serif;
-
     background: #08050b;
     color: white;
 }
@@ -26,14 +24,8 @@ a {
     font-family: inherit;
 }
 
-
-/* ================================
-   PAGINA
-================================ */
-
 .page {
     position: relative;
-
     width: 100%;
     min-height: 100svh;
 
@@ -53,22 +45,18 @@ a {
 }
 
 
-/* ================================
-   STELLE
-================================ */
+/* STELLE */
 
 .stars {
     position: absolute;
     inset: 0;
-
     pointer-events: none;
-
-    opacity: 0.45;
+    opacity: .45;
 
     background-image:
         radial-gradient(
             circle,
-            rgba(255,255,255,0.8) 1px,
+            rgba(255,255,255,.8) 1px,
             transparent 1px
         );
 
@@ -88,9 +76,7 @@ a {
 }
 
 
-/* ================================
-   INTRO
-================================ */
+/* INTRO */
 
 .intro {
     position: relative;
@@ -109,37 +95,31 @@ a {
     padding: 25px 20px;
 
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .intro.hide {
     opacity: 0;
-    transform: scale(0.95);
-
+    transform: scale(.95);
     pointer-events: none;
 }
 
 
-/* ================================
-   TESTI
-================================ */
+/* TESTI */
 
 .top-text {
     margin-bottom: 12px;
 
     font-size: 14px;
-
     letter-spacing: 1px;
 
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,.65);
 }
 
 h1 {
     font-size: clamp(38px, 10vw, 60px);
-
     line-height: 1.05;
-
     font-weight: normal;
 
     margin-bottom: 18px;
@@ -154,13 +134,11 @@ h1 span {
 
     font-size: 15px;
 
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,.65);
 }
 
 
-/* ================================
-   BUSTA
-================================ */
+/* BUSTA */
 
 .envelope-area {
     display: flex;
@@ -172,14 +150,13 @@ h1 span {
     position: relative;
 
     width: min(70vw, 300px);
-
     aspect-ratio: 1.45 / 1;
 
     margin-bottom: 30px;
 
     filter:
         drop-shadow(
-            0 20px 30px rgba(0,0,0,0.5)
+            0 20px 30px rgba(0,0,0,.5)
         );
 
     animation: floating 3s ease-in-out infinite;
@@ -198,7 +175,7 @@ h1 span {
 }
 
 
-/* RETRO */
+/* RETRO DELLA BUSTA */
 
 .envelope-back {
     position: absolute;
@@ -224,7 +201,7 @@ h1 span {
     right: 9%;
     bottom: 8%;
 
-    height: 80%;
+    height: 82%;
 
     background: #fff8fa;
 
@@ -234,20 +211,20 @@ h1 span {
     align-items: center;
     justify-content: center;
 
-    font-size: 30px;
-
     color: #9b2852;
+
+    font-size: 30px;
 
     z-index: 2;
 
-    transform: translateY(5%);
+    transform: translateY(8%);
 
     transition:
         transform 1s ease;
 }
 
 
-/* PARTE ANTERIORE */
+/* PARTE DAVANTI */
 
 .envelope-front {
     position: absolute;
@@ -287,7 +264,7 @@ h1 span {
     width: 100%;
     height: 70%;
 
-    z-index: 4;
+    z-index: 5;
 
     background:
         linear-gradient(
@@ -306,30 +283,30 @@ h1 span {
     transform-origin: top center;
 
     transition:
-        transform 1s ease;
+        transform .8s ease;
 }
 
 
-/* BUSTA APERTA */
+/* APERTURA */
 
 .envelope.open .envelope-flap {
-    transform: rotateX(180deg);
+    transform:
+        translateY(-75%)
+        rotate(3deg);
 }
 
 .envelope.open .letter {
-    transform: translateY(-35%);
+    transform: translateY(-38%);
 }
 
 
-/* ================================
-   PULSANTE APRI
-================================ */
+/* PULSANTE */
 
 .open-envelope {
     border: none;
 
-    min-width: 210px;
-    min-height: 54px;
+    min-width: 220px;
+    min-height: 55px;
 
     padding: 0 25px;
 
@@ -349,43 +326,28 @@ h1 span {
     cursor: pointer;
 
     box-shadow:
-        0 10px 30px rgba(120,25,65,0.35);
+        0 10px 30px rgba(120,25,65,.35);
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+        transform .2s ease,
+        opacity .3s ease;
 
     -webkit-tap-highlight-color: transparent;
-
-    animation: buttonPulse 2s ease-in-out infinite;
-}
-
-@keyframes buttonPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 10px 30px rgba(120,25,65,0.3);
-    }
-
-    50% {
-        box-shadow:
-            0 10px 40px rgba(170,45,90,0.55);
-    }
 }
 
 .open-envelope:active {
-    transform: scale(0.94);
+    transform: scale(.94);
+}
+
+.open-envelope:disabled {
+    opacity: .7;
 }
 
 
-/* ================================
-   MESSAGGIO
-================================ */
+/* MESSAGGIO */
 
 .message {
     position: absolute;
-
     inset: 0;
 
     z-index: 10;
@@ -413,7 +375,7 @@ h1 span {
     background:
         radial-gradient(
             circle at center,
-            rgba(130,30,70,0.3),
+            rgba(130,30,70,.3),
             transparent 55%
         ),
         #08050b;
@@ -421,9 +383,7 @@ h1 span {
 
 .message.show {
     opacity: 1;
-
     visibility: visible;
-
     transform: translateY(0);
 }
 
@@ -432,7 +392,6 @@ h1 span {
 
 .big-heart {
     font-size: 48px;
-
     margin-bottom: 20px;
 
     animation:
@@ -452,12 +411,12 @@ h1 span {
 }
 
 
-/* TESTI */
+/* TESTO */
 
 .message-small {
     font-size: 15px;
 
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,.65);
 
     margin-bottom: 14px;
 }
@@ -483,15 +442,13 @@ h2 span {
 
     line-height: 1.7;
 
-    color: rgba(255,255,255,0.72);
+    color: rgba(255,255,255,.72);
 
     margin-bottom: 30px;
 }
 
 
-/* ================================
-   PULSANTE SITO
-================================ */
+/* PULSANTE SITO */
 
 .site-button {
     display: flex;
@@ -521,20 +478,18 @@ h2 span {
     font-size: 15px;
 
     box-shadow:
-        0 12px 35px rgba(120,25,65,0.4);
+        0 12px 35px rgba(120,25,65,.4);
 
     transition:
-        transform 0.2s ease;
+        transform .2s ease;
 }
 
 .site-button:active {
-    transform: scale(0.95);
+    transform: scale(.95);
 }
 
 
-/* ================================
-   TELEFONO
-================================ */
+/* MOBILE */
 
 @media (max-width: 480px) {
 
@@ -552,9 +507,7 @@ h2 span {
 
     .envelope {
         width: 75vw;
-
         max-width: 290px;
-
         margin-bottom: 25px;
     }
 
@@ -568,25 +521,7 @@ h2 span {
 
     .message-text {
         font-size: 15px;
-
         max-width: 310px;
     }
-
 }
 
-
-/* ================================
-   RIDUZIONE ANIMAZIONI
-================================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-
-        transition: none !important;
-    }
-}
-```
