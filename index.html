@@ -3,80 +3,94 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Per Beatrice ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Due mesi di noi ❤️</title>
+
+    <meta name="description" content="Ho preparato una piccola cosa per te ❤️">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="gift-page">
+    <main class="page">
 
         <div class="stars"></div>
 
+        <!-- SCHERMATA INIZIALE -->
         <section class="intro" id="intro">
 
-            <p class="small-text">Ho preparato una cosa per te...</p>
+            <p class="top-text">
+                Per il nostro secondo mese ❤️
+            </p>
 
             <h1>
                 Per te,<br>
-                <span>Beatrice ❤️</span>
+                <span>Beatrice</span>
             </h1>
 
+            <p class="subtitle">
+                Ho preparato una piccola cosa per te...
+            </p>
+
+            <!-- BUSTA -->
             <div class="envelope-area">
 
-                <button class="envelope-button" id="envelopeButton" aria-label="Apri la busta">
+                <div class="envelope" id="envelope">
 
-                    <div class="envelope">
+                    <div class="envelope-back"></div>
 
-                        <div class="envelope-back"></div>
-
-                        <div class="letter">
-                            <span>❤️</span>
-                        </div>
-
-                        <div class="envelope-front"></div>
-
-                        <div class="envelope-flap"></div>
-
+                    <div class="letter">
+                        <span>❤️</span>
                     </div>
 
-                </button>
+                    <div class="envelope-front"></div>
 
-                <p class="tap-text" id="tapText">
-                    Tocca la busta
-                </p>
+                    <div class="envelope-flap"></div>
+
+                </div>
+
+                <!-- PULSANTE -->
+                <button
+                    type="button"
+                    class="open-envelope"
+                    id="openEnvelope"
+                >
+                    Premi per aprire ❤️
+                </button>
 
             </div>
 
         </section>
 
 
+        <!-- SCHERMATA DOPO L'APERTURA -->
         <section class="message" id="message">
 
-            <div class="heart-animation">❤️</div>
+            <div class="big-heart">
+                ❤️
+            </div>
 
             <p class="message-small">
-                Per te ho preparato una piccola sorpresa.
+                Buon secondo mese, amore mio
             </p>
 
             <h2>
-                Il nostro<br>
-                <span>Capitolo Uno</span>
+                Due mesi<br>
+                <span>di noi</span>
             </h2>
 
             <p class="message-text">
-                Non è un regalo enorme, ma dentro c'è qualcosa
-                che ho fatto pensando a te.
+                Ho preparato questa piccola sorpresa
+                pensando a te.
             </p>
 
             <a
                 href="https://progettobeatrice.vercel.app/"
-                class="open-button"
+                class="site-button"
             >
-                Apri il nostro capitolo
-                <span>❤️</span>
+                Apri il nostro capitolo ❤️
             </a>
 
         </section>
