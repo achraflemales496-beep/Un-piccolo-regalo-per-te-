@@ -1,31 +1,41 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
     const button = document.getElementById("openEnvelope");
     const envelope = document.getElementById("envelope");
     const intro = document.getElementById("intro");
     const message = document.getElementById("message");
 
-    button.addEventListener("click", () => {
+    if (!button || !envelope || !intro || !message) {
+        return;
+    }
 
-        // Apre la busta
+    button.addEventListener("click", function () {
+
+        // Apri la busta
         envelope.classList.add("open");
 
-        // Cambia il testo del pulsante
-        button.textContent = "❤️";
+        // Cambia il pulsante
+        button.innerHTML = "❤️";
 
-        // Disabilita il pulsante
+        // Impedisce altri click
         button.disabled = true;
 
-        // Nasconde la prima schermata
-        setTimeout(() => {
-            intro.classList.add("hide");
-        }, 1200);
 
-        // Mostra il messaggio
-        setTimeout(() => {
+        // Dopo l'apertura della busta
+        setTimeout(function () {
+
+            intro.classList.add("hide");
+
+        }, 1400);
+
+
+        // Mostra la pagina con il collegamento
+        setTimeout(function () {
+
             message.classList.add("show");
-        }, 1800);
+
+        }, 1900);
 
     });
 
